@@ -1,10 +1,10 @@
-//var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-var url ="aamps://nlitenams-inso.streaming.media.azure.net/e14ba364-9de4-4252-908d-aa4e622748d7/The_Chase_30_sec_animation.ism/manifest(format=mpd-time-csf,encryption=cenc).mpd";
-var player;
+var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+//var url ="aamps://nlitenams-inso.streaming.media.azure.net/e14ba364-9de4-4252-908d-aa4e622748d7/The_Chase_30_sec_animation.ism/manifest(format=mpd-time-csf,encryption=cenc).mpd";
+//var player;
 
-window.onload = function() {
-    player = new AAMPMediaPlayer();
-}
+// window.onload = function() {
+//     player = new AAMPMediaPlayer();
+// }
 
 function loadAAMPVideo() {
     var video = document.getElementById("video");
@@ -12,15 +12,15 @@ function loadAAMPVideo() {
     video.play();
     video.style.display = "block";
 
-    if (video.requestFullscreen) {
-        video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) {
-        video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) {
-        video.msRequestFullscreen();
-    }
+    // if (video.requestFullscreen) {
+    //     video.requestFullscreen();
+    // } else if (video.mozRequestFullScreen) {
+    //     video.mozRequestFullScreen();
+    // } else if (video.webkitRequestFullscreen) {
+    //     video.webkitRequestFullscreen();
+    // } else if (video.msRequestFullscreen) {
+    //     video.msRequestFullscreen();
+    // }
 
     var header = document.querySelector(".header");
     var carouselContainer = document.getElementById("carouselContainer");
@@ -33,12 +33,12 @@ function loadAAMPVideo() {
     playbtn.style.display = "none";
 
     // Listen for the 'ended' event to display the homepage sections after video ends
-    video.addEventListener("ended", function() {
-        header.style.display = "block";
-        carouselContainer.style.display = "block";
-        languagesContainer.style.display = "block";
-        playbtn.style.display = "block";
-    });
+    // video.addEventListener("ended", function() {
+    //     header.style.display = "block";
+    //     carouselContainer.style.display = "block";
+    //     languagesContainer.style.display = "block";
+    //     playbtn.style.display = "block";
+    // });
 }
 
 var playButton = document.getElementById("playButton");
@@ -48,6 +48,23 @@ playButton.addEventListener("keydown", function(event) {
         loadAAMPVideo();
     }
 });
+               function goToHome() {
+        window.location.href = "./index.html";
+    }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.keyCode === 8) { // Backspace key
+                  console.log("backspace is working");
+                // if (video.currentTime === video.duration || video.paused) {
+                    goToHome();
+                   // showUI();
+                
+             
+                    
+                  
+                // }
+            }
+        });
 // // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
 // var url = "aamp://amssamples.streaming.mediaservices.windows.net/683f7e47-bd83-4427-b0a3-26a6c4547782/BigBuckBunny.ism/manifest(format=mpd-time-csf)";
 // // https://https://
